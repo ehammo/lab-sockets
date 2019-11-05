@@ -56,7 +56,7 @@ class Text_Input(threading.Thread):
         def run(self):
             while self.running == True:
               print('waiting for text')
-              text = input()
+              text = raw_input()
               byteArray = text.encode('UTF-8')
               try:
                   self.thread.socket.sendall(byteArray)
@@ -99,7 +99,7 @@ if __name__ == "__main__":
     chat_server.start()
     while wait:
       print('type something to continue')
-      x = input()
+      x = raw_input()
       wait = False
     chat_client = Chat_Client(connectport)
     chat_client.host = '127.0.0.1'
